@@ -4,6 +4,6 @@ import { BuyersService } from './buyers.service';
 
 @Module({
   controllers: [BuyersController],
-  providers: [BuyersService]
+  providers: [BuyersService],
 })
 export class BuyersModule {}
