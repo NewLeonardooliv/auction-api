@@ -1,13 +1,15 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { CreateBidDto } from './dto/create-bid.dto';
+import { ItemsService } from '../items/items.service';
 
 @Injectable()
 export class BidsService {
   private bids = [];
-  private items = []; // This should be replaced with actual item fetching logic
+
+  constructor(private readonly itemsService: ItemsService) {}
 
   create(createBidDto: CreateBidDto) {
-    const item = this.items.find((i) => i.id === createBidDto.item_id);
+    const item = this.itemsService.find(createBidDto.item_id);
 
     if (!item) {
       throw new BadRequestException('Item not found');
