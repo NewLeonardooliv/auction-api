@@ -20,6 +20,8 @@ export class ItemsService {
   }
 
   find(id: number) {
-    return this.items.find((i) => i.id === id);
+    return this.items.map((item) => {
+      if (item.id == id) return item;
+    });
   }
 }

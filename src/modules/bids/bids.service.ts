@@ -10,7 +10,6 @@ export class BidsService {
 
   create(createBidDto: CreateBidDto) {
     const item = this.itemsService.find(createBidDto.item_id);
-
     if (!item) {
       throw new BadRequestException('Item not found');
     }
