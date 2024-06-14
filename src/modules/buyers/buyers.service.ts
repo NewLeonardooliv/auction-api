@@ -7,7 +7,7 @@ export class BuyersService {
 
   create(createBuyerDto: CreateBuyerDto) {
     const buyer = {
-      id: this.buyers.length,
+      id: this.buyers.length + 1,
       ...createBuyerDto,
     };
     this.buyers.push(buyer);
