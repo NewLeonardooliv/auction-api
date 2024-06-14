@@ -25,7 +25,13 @@ export class BidsService {
       );
     }
 
-    this.bids.push(createBidDto);
-    return createBidDto;
+    const bid = {
+      id: this.bids.length + 1,
+      ...createBidDto,
+    };
+
+    this.bids.push(bid);
+
+    return bid;
   }
 }
