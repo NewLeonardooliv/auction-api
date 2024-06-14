@@ -6,12 +6,13 @@ export class ItemsService {
   private items = [];
 
   create(createItemDto: CreateItemDto) {
-    this.items.push({
+    const item = {
       id: this.items.length + 1,
       ...createItemDto,
-    });
+    };
+    this.items.push(item);
 
-    return createItemDto;
+    return item;
   }
 
   findAll() {
