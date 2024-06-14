@@ -6,7 +6,12 @@ export class BuyersService {
   private buyers = [];
 
   create(createBuyerDto: CreateBuyerDto) {
-    this.buyers.push(createBuyerDto);
-    return createBuyerDto;
+    const buyer = {
+      id: this.buyers.length,
+      ...createBuyerDto,
+    };
+    this.buyers.push(buyer);
+
+    return buyer;
   }
 }
